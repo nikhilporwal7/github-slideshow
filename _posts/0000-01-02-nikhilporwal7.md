@@ -2,5 +2,5 @@
 layout: slide
 title: "Welcome to our second slide!"
 ---
-Your text
+<b> So you Think, Shall you Become</b>
 Use the left arrow to go back!
