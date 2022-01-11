@@ -1,0 +1,56 @@
+bfsi
+http://www.iibf.org.in/pns4_oclasses.asp
+
+WCF in Integrity
+Friday, August 27, 202110:37 AMWe use NetTCP bindingTCP binding This binding is provided by the NetTcpBinding class. It uses TCP protocol for communication between two machines within intranet (means same network). It encodes the message in binary format. This is a faster and more reliable binding compared to the HTTP protocol bindings. It is only used when the communication is WCF-to-WCF which means both client and service should have WCF. From <https://www.c-sharpcorner.com/UploadFile/87b416/type-of-bindings-that-wcf-supports/>  Basic binding This binding is provided by the BasicHttpBinding class. It is designed to expose a WCF service as an ASMX web service, so that old clients (that are still using an ASMX web service) can consume the new service. By default, it uses the HTTP protocol for transport and encodes the message in UTF-8 text format. You can also use HTTPS with this binding.  From <https://www.c-sharpcorner.com/UploadFile/87b416/type-of-bindings-that-wcf-supports/>   inweb.config  <system.serviceModel>    <client>      <endpoint name="default" contract="*" address="net.tcp://localhost:7777" binding="netTcpBinding" bindingConfiguration="netTcpBinding" />    </client>    <bindings>      <netTcpBinding>        <binding name="netTcpBinding" maxReceivedMessageSize="20000000" receiveTimeout="00:15:00" sendTimeout="00:10:00">          <readerQuotas maxArrayLength="20000000" maxStringContentLength="20000000" />        </binding>      </netTcpBinding>    </bindings>  </system.serviceModel> 
+Various Types of Bindings WCF Supports
+This article explains the various types of WCF Bindings.
+
+This binding is provided by the NetTcpBinding class. It uses TCP protocol for communication between two machines within intranet (means same network). It encodes the message in binary format. This is a faster and more reliable binding compared to the HTTP protocol bindings. It is only used when the communication is WCF-to-WCF which means both client and service should have WCF.
+
+ 
+
+From <https://www.c-sharpcorner.com/UploadFile/87b416/type-of-bindings-that-wcf-supports/>
+
+ 
+
+Basic binding
+
+ 
+
+This binding is provided by the BasicHttpBinding class. It is designed to expose a WCF service as an ASMX web service, so that old clients (that are still using an ASMX web service) can consume the new service. By default, it uses the HTTP protocol for transport and encodes the message in UTF-8 text format. You can also use HTTPS with this binding.
+
+
+From <https://www.c-sharpcorner.com/UploadFile/87b416/type-of-bindings-that-wcf-supports/>
+
+ 
+
+ inweb.config
+
+  <system.serviceModel>
+
+    <client>
+
+      <endpoint name="default" contract="*" address="net.tcp://localhost:7777" binding="netTcpBinding" bindingConfiguration="netTcpBinding" />
+
+    </client>
+
+    <bindings>
+
+      <netTcpBinding>
+
+        <binding name="netTcpBinding" maxReceivedMessageSize="20000000" receiveTimeout="00:15:00" sendTimeout="00:10:00">
+
+          <readerQuotas maxArrayLength="20000000" maxStringContentLength="20000000" />
+
+        </binding>
+
+      </netTcpBinding>
+
+    </bindings>
+
+  </system.serviceModel>
+
+
+
+
